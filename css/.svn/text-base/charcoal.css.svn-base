@@ -1,0 +1,203 @@
+/* Reset */
+
+html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr,acronym,address,big,cite,code,del,dfn,em,img,ins,kbd,q,s,samp,small,strike,strong,sub,sup,tt,var,b,u,i,center,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td,article,aside,canvas,details,embed,figure,figcaption,footer,header,hgroup,menu,nav,output,ruby,section,summary,time,mark,audio,video{border:0;font-size:100%;font:inherit;vertical-align:baseline;margin:0;padding:0;}article,aside,details,figcaption,figure,footer,header,hgroup,menu,nav,section{display:block;}body{line-height:1;}ol,ul{list-style:none;}blockquote,q{quotes:none;}blockquote:before,blockquote:after,q:before,q:after{content:none;}table{border-collapse:collapse;border-spacing:0;}
+
+/* CSS */
+
+@font-face {
+    font-family: mission-script;
+    src: url('../fonts/Mission-Script.otf');
+}
+
+a{
+	color: white;
+	text-decoration: none;
+}
+
+a:visited{
+	color: inherit;
+}
+
+div#wrapper{
+	position: absolute;
+	top:1%;
+	left:10%;
+	width: 80%;
+	height: 99%;
+	border: 1px solid white;
+}
+
+body{
+	background-image: url(../images/Zazen-charcoal-bg.png);
+    color: white;
+    font-family: mission-script, Arial;
+}
+
+header{
+    width: 100%;
+	height: 27%;
+	border: 1px solid green;
+}
+
+header a{
+	font-size: 200%;
+	color: white;
+	text-decoration: none;
+	border: 1px solid red;
+}
+
+nav a{
+	transition: color 150ms;
+}
+
+nav a:hover{
+	color: #049DA7; 
+}
+
+#section-logo{
+	float: left;
+}
+
+a#logo{
+	display: block;
+	width: 267px;
+	height: 178px;
+}
+
+a#logo img{
+    width: 100%;
+    height: 100%;
+}
+
+header li{
+   	float: right;
+	margin: 6%;
+	margin-right: 10%;
+	border: 1px solid yellow;
+}
+
+#content, #book{
+	width: 100%;
+	height: 73%;
+	border: 1px solid blue;
+}
+
+#content img{
+	width: 50%;
+	height: 50%;
+}
+
+section#content section{
+	float: left;
+	width: 33%;
+	border: 1px solid cyan;
+}
+
+section#realisations{
+	margin-top: 14.5%;
+}
+
+section#content img{
+	margin: 0 0 0 27%;
+}
+
+footer{
+	position: absolute;
+	height: 2%;
+	width: 100%;	
+	text-align: center;
+}
+
+#content-fiche{
+	width: 100%;
+	height: 73%;
+	border: 1px solid blue;
+}
+
+section#content-fiche .fiche{
+	float: left;
+	width: 33%;
+	border: 1px solid brown;
+	margin: 8%;
+	height: 60%;
+	/*background-color: rgba(255, 255, 255, 0.3);*/
+}
+
+#book nav{
+	margin: 10px 3px;
+}
+
+#book>section{
+	float: left;
+	height: 90%;
+	overflow: auto;
+}
+
+#menu-book{
+	width: 16%;
+	margin-left: 6.3%;
+	border: 1px solid green;
+	font-size: 120%;
+}
+
+#menu-book ul{
+	margin: 2% 0 1% 7%;
+}
+
+#menu-book li{
+	margin: 2% 0;
+}
+
+#book-photos{
+	width: 71%;
+	border: 1px solid gray;
+}
+
+.photos{
+	float: left;
+	margin: 2%;
+	border: 1px solid purple;
+	width: 20%;
+}
+
+.photos img{
+	width: 100%;
+	height: 100%;
+}
+.photos p{
+	width: 150px;
+	height: 150px;
+	overflow: hidden;
+}
+
+.info{
+	border: 1px solid cyan;
+}
+
+.photo-fiche{
+	position: absolute;
+	border: 1px solid red;
+	width: 20%;
+	margin: 0 5% 0 0;
+}
+
+.photo-fiche img{
+	width: 100%;
+}
+
+.photo-fiche h1{
+	margin-bottom: 3%;
+	font-size: 150%;
+}
+
+.liens-fiche{
+	position: absolute;
+	margin: 6% 0 0 24%;
+	border: 1px solid yellow;
+}
+.text-fiche{
+	position: absolute;
+	margin: 17% 0 0 0;
+	border: 1px solid yellow;
+	width: 27%;
+}
