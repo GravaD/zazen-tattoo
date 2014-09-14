@@ -10,22 +10,22 @@ require 'include/menu.inc.php'; ?>
 				<nav>
 					<h1>Artistes</h1>
 					<ul>
-						<li><a href="#" onclick="select_img('tous')">Tous</a></li>
-						<li><a href="#" onclick="select_img('mathieu')">Mathieu</a></li>
-						<li><a href="#" onclick="select_img('guillaume')">Guillaume</a></li>
+						<li><a onclick="select_img('tous')">Tous</a></li>
+						<li><a onclick="select_img('mathieu')">Mathieu</a></li>
+						<li><a onclick="select_img('guillaume')">Guillaume</a></li>
 					</ul>
 				</nav>
 				<nav>
 					<h1>Tags</h1>
 					<ul>
-						<li><a href="#" onclick="select_img('tous')">Tous</a></li>
-						<li><a href="#" onclick="select_img('ailes')">Ailes</a></li>
-						<li><a href="#" onclick="select_img('animal')">Animal</a></li>
-						<li><a href="#" onclick="select_img('caligraphie')">Caligraphie</a></li>
-						<li><a href="#" onclick="select_img('dragon')">Dragon</a></li>
-						<li><a href="#" onclick="select_img('etoile')">Étoile</a></li>
-						<li><a href="#" onclick="select_img('fleur')">Fleur</a></li>
-						<li><a href="#" onclick="select_img('tribal')">Tribal</a></li>
+						<li><a onclick="select_img('tous')">Tous</a></li>
+						<li><a onclick="select_img('ailes')">Ailes</a></li>
+						<li><a onclick="select_img('animal')">Animal</a></li>
+						<li><a onclick="select_img('caligraphie')">Caligraphie</a></li>
+						<li><a onclick="select_img('dragon')">Dragon</a></li>
+						<li><a onclick="select_img('etoile')">Étoile</a></li>
+						<li><a onclick="select_img('fleur')">Fleur</a></li>
+						<li><a onclick="select_img('tribal')">Tribal</a></li>
 					</ul>
 				</nav>
 			</section>

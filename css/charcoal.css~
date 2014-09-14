@@ -54,7 +54,6 @@ section#content-shop{
 	height: 80%;
 	width: 80%;
 	margin: 10%;
-	border: 1px solid red;
 	background-image: url(../images/DSC_0010.JPG);
 	background-size: 100% 100%;
 }
