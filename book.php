@@ -11,21 +11,14 @@ require 'include/menu.inc.php'; ?>
 					<h1>Artistes</h1>
 					<ul>
 						<li><a onclick="select_img('tous')">Tous</a></li>
-						<li><a onclick="select_img('mathieu')">Mathieu</a></li>
-						<li><a onclick="select_img('guillaume')">Guillaume</a></li>
+						<?php echo pick_artists(); ?>
 					</ul>
 				</nav>
 				<nav>
 					<h1>Tags</h1>
 					<ul>
 						<li><a onclick="select_img('tous')">Tous</a></li>
-						<li><a onclick="select_img('ailes')">Ailes</a></li>
-						<li><a onclick="select_img('animal')">Animal</a></li>
-						<li><a onclick="select_img('caligraphie')">Caligraphie</a></li>
-						<li><a onclick="select_img('dragon')">Dragon</a></li>
-						<li><a onclick="select_img('etoile')">Étoile</a></li>
-						<li><a onclick="select_img('fleur')">Fleur</a></li>
-						<li><a onclick="select_img('tribal')">Tribal</a></li>
+						<?php echo pick_tags(); ?>
 					</ul>
 				</nav>
 			</section>
@@ -77,61 +70,45 @@ require 'include/menu.inc.php'; ?>
 					$delimiter=",";
 					$output="";
 					$db=dbconnect();
-					$query= "SELECT * FROM `image` ORDER BY `image`.`id` DESC "; //sélection de toutes les entrées de la table image
+					$query= "SELECT * FROM `image` ORDER BY `id_img` DESC ";
 					$result = mysqli_query($db, $query) or die('Erreur SQL !<br>'.$req.'<br>'. mysql_error());
 					while($image=mysqli_fetch_assoc($result)){
-
-						$tags=$image["tags"]; //récupération de la liste de tags séparés par une virgule
-						$tags_array=explode($delimiter,$tags); //récupération de chaque tag séparément dans un tableau
-						$class_tags="";
-						foreach($tags_array as $tag){
-							$class_tags=$class_tags." ".$tag;
-						}
-						$artist=$image["artiste"];
-						$class_tags=$class_tags." ".$artist;
-						$nom=$image["nom"];
-						$output= $output.'<section class="photos'.$class_tags.'"><p><a class="fancybox" href="images/tattoos/'.$image["nom_fichier"].'" ><img src="images/tattoos/'.$image["nom_fichier"].'" alt="Photo de tatouage." /></a></p></section>';
+						$nom_fic=$image["id_img"]."jpg";
+						$output= $output.'<section class="photos"><p><a class="fancybox" href="images/tattoos/'.$nom_fic.'" ><img src="images/tattoos/'.$nom_fic.'" alt="Photo de tatouage." /></a></p></section>';
 					}
 					mysqli_close($db);
 					return $output;
 				}
-				
+
+				//fonction de récupération de la liste des artistes répertoriés
+				function pick_artists(){
+					$output="";
+					$db=dbconnect();
+					$query= "SELECT * FROM `artiste` ";
+					$result = mysqli_query($db, $query) or die('Erreur SQL !<br>'.$req.'<br>'. mysql_error());
+					while($artiste=mysqli_fetch_assoc($result)){
+						$nom=$artiste["nom_art"];
+						$output=$output.'<li><a onclick="select_img(\''.strtolower($nom).'\')">'.ucfirst($nom).'</a></li>';
+					}
+					mysqli_close($db);
+					return $output;
+				}				
 
 				//fonction de récupération de la liste des tags présents dans la BD
 				function pick_tags(){
-					$tag_list = array("Tous");
-					$delimiter=",";
 					$output="";
 					$db=dbconnect();
-					$query= "SELECT `image`.`tags` FROM `image` "; //sélection de tous les tags de la table image
+					$query= "SELECT * FROM `tag` "; //sélection de tous les tags de la table image
 					$result = mysqli_query($db, $query) or die('Erreur SQL !<br>'.$req.'<br>'. mysql_error());
-					while($image=mysqli_fetch_assoc($result)){
-						$tags=$image["tags"]; //récupération de la liste de tags séparés par une virgule
-						$tags_array=explode($delimiter,$tags); //récupération de chaque tag séparément dans un tableau
-						foreach($tag_array as $tag){
-							echo $tag;
-							array_push($tag_list, $tag);
-						}
-						/*$i=0;
-						while($tag!=null){
-							$tag=$tags_array[$i];
-							$i++;
-							echo $tag;
-						}*/
-					}
-					/*
-					**
-					**	on supprime les doublons
-					**
-					*/
-					foreach($tag_list as $tag){
-						$output=$output.'<h1><a href="'.$tag.'" onclick="select_img("'.$tag.'")">'.$tag.'"</a></h1>';
+					while($tag=mysqli_fetch_assoc($result)){
+						$nom=$tag["nom_tag"]; //récupération de la liste de tags séparés par une virgule
+						$output=$output.'<li><a onclick="select_img(\''.strtolower($nom).'\')">'.ucfirst($nom).'</a></li>';
 					}
 					mysqli_close($db);
 					return $output;
 				}
 
-				//fonction permettant l'affichage des tatouages d'un artiste (gère la redirection depuis la page Artistes vers celle-ci
+				//fonction permettant l'affichage des tatouages d'un artiste (gère la redirection depuis la page Artistes vers celle-ci)
 				function retrieve_artist(){
 					$artist = $_GET["artist"];
 					if($artist==""){
@@ -145,7 +122,6 @@ require 'include/menu.inc.php'; ?>
 
 				sample();
 				//echo pick_images();
-				//echo pick_tags();
 
 				?>
 

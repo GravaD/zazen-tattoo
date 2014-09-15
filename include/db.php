@@ -6,7 +6,7 @@
 
 	define("DB_PASS", "harcelement");
 
-	define("DB_BDD", "zazen");
+	define("DB_BDD", "zazen-tattoo");
 
 	function dbconnect() {
 		return mysqli_connect(DB_IP , DB_LOGIN , DB_PASS , DB_BDD); // Connexion a la BD
